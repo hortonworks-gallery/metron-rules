@@ -1,0 +1,8 @@
+"triageConfig" : {
+                     "riskLevelRules" : {
+                                 EXISTS(isAlert)
+                                 ENDS_WITH(application, 'BOX') : 5,
+				                         ENDS_WITH(application, 'DROPBOX') : 5
+                                        }
+                     ,"aggregator" : "SUM"
+                             }
