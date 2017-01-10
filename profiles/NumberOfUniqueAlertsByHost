@@ -1,0 +1,16 @@
+Number of Unique Alerts by Host
+
+{
+  "profile": "unique-alerts-by-host",
+  "onlyif": "source.type == 'snort'"
+  "foreach": "ip_src_addr",
+  "init": {
+    "alerts": "HLLP_INIT(5, 6)"
+  }
+  "update": {
+    "alerts": "HLLP_ADD(alerts, sig_id)"
+  }
+  "result": {
+    "HLLP_CARDINALITY(alerts)"
+  }
+}
