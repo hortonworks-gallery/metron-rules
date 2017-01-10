@@ -15,7 +15,7 @@
    
    .......
    
-   #Then we check if our flow length is greater than the 90th percentile 
+   #Then we check if our value at hand is greater than 95th percentile
    
    "threatIntel": {
     "triageConfig" : {
