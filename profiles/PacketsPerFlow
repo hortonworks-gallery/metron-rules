@@ -1,0 +1,13 @@
+Packets per Flow
+
+{
+  "profile": "packets-per-flow",
+  "onlyif": "source.type == 'yaf'",
+  "foreach": "ip_src_addr",
+  "update": {
+    "s": "STATS_ADD(s, pkt) 
+  }
+  "result": {
+    "s"
+  }
+}
