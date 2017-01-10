@@ -1,0 +1,13 @@
+Flow Duration
+
+{
+  "profile": "flow-duration",
+  "onlyif": "source.type == 'yaf'",
+  "foreach": "ip_src_addr",
+  "update": {
+    "s": "STATS_ADD(s, duration) 
+  }
+  "result": {
+    "s"
+  }
+}
