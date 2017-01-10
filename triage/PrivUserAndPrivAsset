@@ -1,0 +1,7 @@
+"triageConfig" : {
+                     "riskLevelRules" : {
+                                 ENDS_WITH(userType, 'privileged') : 5,
+				 ENDS_WITH(assetType, 'critical') : 5
+                                        }
+                     ,"aggregator" : "SUM"
+                             }
