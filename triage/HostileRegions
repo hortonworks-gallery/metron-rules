@@ -1,1 +1,8 @@
-
+"triageConfig" : {
+                     "riskLevelRules" : {
+                                 EXISTS(isAlert) : 5,
+                                 ENDS_WITH(enrichments.hbaseEnrichment.url.whois.home_country, 'RU') : 5,
+				                         ENDS_WITH(enrichments.hbaseEnrichment.url.whois.home_country, 'CN') : 5,
+                                        }
+                     ,"aggregator" : "SUM"
+                             }
