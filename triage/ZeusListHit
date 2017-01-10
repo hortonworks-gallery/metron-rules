@@ -1,0 +1,13 @@
+{
+  ...
+  ,"threatIntel" : {
+            ...
+           , "triageConfig" : {
+                     "riskLevelRules" : {
+                                 "exists(threatintels.hbaseThreatIntel.domain_without_subdomains.zeusList)" : 5
+                               , "not(ENDS_WITH(domain_without_subdomains, '.com') or ENDS_WITH(domain_without_subdomains, '.net'))" : 10
+                                        }
+                     ,"aggregator" : "MAX"
+                             }
+                  }
+}
