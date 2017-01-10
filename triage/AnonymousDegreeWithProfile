@@ -18,7 +18,7 @@
    
    .......
    
-   #Then we check if our flow length is greater than the 90th percentile 
+   #Then we check if our flow length (both in and out) is greater than the 90th percentile and assign a score of 50 to each anomaly
    
    "threatIntel": {
     "triageConfig" : {
