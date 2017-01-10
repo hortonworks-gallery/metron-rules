@@ -1,0 +1,32 @@
+#first we set the enrichment to tack a 95th percentile threshold to the  flow message over 1 hour
+
+"enrichment" : {
+    "fieldMap": {
+      "stellar" : {
+        "config" : {
+          "numeric" : {
+            "value_red_level_out": "STATS_PERCENTILE( STATS_MERGE( PROFILE_GET('host-in-degree', ip_src_addr, 1, 'HOURS')), 95)",
+            "value_red_level_in": "STATS_PERCENTILE( STATS_MERGE( PROFILE_GET('host-out-degree', ip_src_addr, 1, 'HOURS')), 95)",
+          },
+          "text" : {
+            "is_alert": "true"
+          }
+        }
+      }
+     }
+   }
+   
+   .......
+   
+   #Then we check if our flow length is greater than the 90th percentile 
+   
+   "threatIntel": {
+    "triageConfig" : {
+      "riskLevelRules" : {
+        "value_out > value_red_level_out" : 50, 
+        "value_in > value_red_level_in" : 50,
+      },
+      "aggregator" : "SUM"
+    }
+  }
+}
