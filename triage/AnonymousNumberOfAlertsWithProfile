@@ -1,1 +1,28 @@
+#first we need to figure out what's the 95th percentile value is and tack it to the message 
 
+"enrichment" : {
+    "fieldMap": {
+      "stellar" : {
+        "config" : {
+          "numeric" : {
+            "value_red_level": "STATS_PERCENTILE( STATS_MERGE( PROFILE_GET('alerts-by-host', ip_src_addr, 2, 'HOURS')), 95)"
+          
+          }
+        }
+      }
+     }
+   }
+   
+   .......
+   
+   #Then we check if our flow length is greater than the 90th percentile 
+   
+   "threatIntel": {
+    "triageConfig" : {
+      "riskLevelRules" : {
+        "value > value_red_level" : 100
+      },
+      "aggregator" : "MAX"
+    }
+  }
+}
