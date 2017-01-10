@@ -1,0 +1,16 @@
+Number of Alerts by Host
+
+{
+  "profile": "alerts-by-host",
+  "onlyif": "source.type == 'snort'",
+  "foreach": "ip_src_addr",
+  "init": {
+    "alerts": "0"
+  },
+  "update": {
+    "alerts": "alerts + 1"
+  }
+  "result": {
+    "alerts"
+  }
+}
