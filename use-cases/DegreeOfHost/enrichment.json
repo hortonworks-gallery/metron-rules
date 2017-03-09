@@ -1,0 +1,17 @@
+{
+  "enrichment" : {
+    "fieldMap": {
+      "stellar" : {
+        "config" : {
+          "numeric" : {
+            "value_red_level_out": "STATS_PERCENTILE( STATS_MERGE( PROFILE_GET('host-in-degree', ip_src_addr, 1, 'HOURS')), 95)",
+            "value_red_level_in": "STATS_PERCENTILE( STATS_MERGE( PROFILE_GET('host-out-degree', ip_src_addr, 1, 'HOURS')), 95)"
+          },
+          "text" : {
+            "is_alert": "true"
+          }
+        }
+      }
+    }
+  }
+}

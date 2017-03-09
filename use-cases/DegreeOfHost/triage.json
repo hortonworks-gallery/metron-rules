@@ -1,0 +1,11 @@
+{
+  "threatIntel": {
+    "triageConfig" : {
+      "riskLevelRules" : {
+        "value_out > value_red_level_out" : 50,
+        "value_in > value_red_level_in" : 50
+      },
+      "aggregator" : "SUM"
+    }
+  }
+}
