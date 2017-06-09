@@ -1,0 +1,9 @@
+
+{
+"es.clustername": "metron",
+"es.ip": "node1:9300",
+"es.date.format": "yyyy.MM.dd.HH",
+"parser.error.topic": "indexing",
+"profiler.client.period.duration" : "5",
+"profiler.client.period.duration.units" : "MINUTES"
+}

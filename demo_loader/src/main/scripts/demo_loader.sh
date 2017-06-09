@@ -32,5 +32,5 @@ export METRON_HOME=/usr/metron/$METRON_VERSION
 export CLASSNAME="com.hortonworks.metron.loader.csv.DemoLoader"
 export DM_JAR=metron-data-management-$METRON_VERSION.jar
 
-CP=$METRON_HOME/lib/$DM_JAR
+CP="$METRON_HOME/lib/$DM_JAR:$METRON_HOME/lib/demo-loader-$METRON_VERSION.jar"
 java $METRON_JVMFLAGS -cp $CP $CLASSNAME "$@"

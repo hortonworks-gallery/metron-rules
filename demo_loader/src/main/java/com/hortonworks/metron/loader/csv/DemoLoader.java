@@ -18,22 +18,17 @@
 package com.hortonworks.metron.loader.csv;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableMap;
 import org.apache.commons.cli.*;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.metron.common.csv.CSVConverter;
 import org.apache.metron.common.dsl.Context;
 import org.apache.metron.common.dsl.MapVariableResolver;
 import org.apache.metron.common.dsl.StellarFunctions;
 import org.apache.metron.common.dsl.VariableResolver;
-import org.apache.metron.common.dsl.functions.resolver.FunctionResolver;
 import org.apache.metron.common.stellar.StellarPredicateProcessor;
 import org.apache.metron.common.utils.JSONUtils;
 import org.apache.metron.common.utils.KafkaUtils;
 import org.apache.metron.common.utils.cli.OptionHandler;
-import org.apache.metron.dataloads.extractor.csv.CSVExtractor;
 import org.apache.metron.dataloads.nonbulk.flatfile.importer.LocalImporter;
 
 import javax.annotation.Nullable;
@@ -183,7 +178,9 @@ public class DemoLoader {
         }
         return cli;
       } catch (ParseException e) {
-        System.err.println("Unable to parse args: " + Joiner.on(' ').join(args));
+        System.err.println("Unable to parse args: "
+                + String.join(" ", args)
+        );
         e.printStackTrace(System.err);
         printHelp();
         System.exit(-1);
@@ -408,7 +405,9 @@ public class DemoLoader {
     StellarPredicateProcessor processor = new StellarPredicateProcessor();
     VariableResolver vr = null;
     if(hostnameFilter != null) {
-      vr = new MapVariableResolver(message, ImmutableMap.of("hostname_filter", hostnameFilter));
+      Map<String, Object> hf = new HashMap<>();
+      hf.put("hostname_filter", hostnameFilter);
+      vr = new MapVariableResolver(message, hf);
     }
     else {
       vr = new MapVariableResolver(message);

@@ -17,10 +17,9 @@
  */
 package com.hortonworks.metron.loader.csv;
 
-import com.google.common.base.Splitter;
-import com.google.common.collect.Iterables;
-import org.apache.commons.io.Charsets;
-import org.apache.metron.dataloads.nonbulk.flatfile.importer.LocalImporter;
+
+import org.apache.metron.guava.base.Splitter;
+import org.apache.metron.guava.collect.Iterables;
 
 import java.io.*;
 import java.nio.charset.Charset;
