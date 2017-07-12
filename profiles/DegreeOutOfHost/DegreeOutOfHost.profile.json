@@ -1,0 +1,12 @@
+{
+  "profile": "host-in-degree",
+  "onlyif": "source.type == 'yaf'",
+  "foreach": "ip_dst_addr",
+  "init": {
+    "in": "HLLP_INIT(5, 6)"
+  },
+  "update": {
+    "in": "HLLP_ADD(in, ip_src_addr)"
+  },
+  "result": "HLLP_CARDINALITY(in)"
+}
