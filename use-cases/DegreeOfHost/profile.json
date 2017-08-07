@@ -4,23 +4,23 @@
     "onlyif": "source.type == 'yaf'",
     "foreach": "ip_dst_addr",
     "init": {
-      "in": "HLLP_INIT(5, 6)"
+      "traffic_in": "HLLP_INIT(5, 6)"
     },
     "update": {
-      "in": "HLLP_ADD(in, ip_src_addr)"
+      "traffic_in": "HLLP_ADD(traffic_in, ip_src_addr)"
     },
-    "result": "HLLP_CARDINALITY(in)"
+    "result": "HLLP_CARDINALITY(traffic_in)"
   },
   {
     "profile": "host-out-degree",
     "onlyif": "source.type == 'yaf'",
     "foreach": "ip_src_addr",
     "init": {
-      "in": "HLLP_INIT(5, 6)"
+      "traffic_out": "HLLP_INIT(5, 6)"
     },
     "update": {
-      "in": "HLLP_ADD(in, ip_dst_addr)"
+      "traffic_out": "HLLP_ADD(traffic_out, ip_dst_addr)"
     },
-    "result": "HLLP_CARDINALITY(in)"
+    "result": "HLLP_CARDINALITY(traffic_out)"
   }
 ]
