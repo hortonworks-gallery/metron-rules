@@ -1,0 +1,17 @@
+{
+  "hdfs" : {
+    "index": "profiler",
+    "batchSize": 5,
+    "enabled" : false 
+  },
+  "elasticsearch" : {
+    "index": "profiler",
+    "batchSize": 5,
+    "enabled" : false
+  },
+  "solr" : {
+    "index": "profiler",
+    "batchSize": 5,
+    "enabled" : false
+  }
+}
